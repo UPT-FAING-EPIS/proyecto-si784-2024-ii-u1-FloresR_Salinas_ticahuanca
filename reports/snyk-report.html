@@ -525,7 +525,7 @@
           </svg>
         </a>
         <div class="test-meta">
-          <p class="timestamp">October 1st 2024, 6:16:28 pm (UTC+00:00)</p>
+          <p class="timestamp">October 1st 2024, 6:16:34 pm (UTC+00:00)</p>
           <div class="filepath" title="/home/runner/work/proyecto-si784-2024-ii-u1-FloresR_Salinas_ticahuanca/proyecto-si784-2024-ii-u1-FloresR_Salinas_ticahuanca">Source: /home/runner/work/proyecto-si784-2024-ii-u1-FloresR_Salinas_ticahuanca/proyecto-si784-2024-ii-u1-FloresR_Salinas_ticahuanca</div>
         </div>
       </div>
@@ -551,7 +551,7 @@
         <div class="source-panel">
           <span class="source-panel__heading">Scan Coverage</span>
           <ul class="scan-coverage">
-            <li class="type">HTML files: <strong>1</strong></li><li class="type">C# files: <strong>27</strong></li><li class="type">JavaScript files: <strong>15</strong></li>
+            <li class="type">C# files: <strong>27</strong></li><li class="type">HTML files: <strong>1</strong></li><li class="type">JavaScript files: <strong>15</strong></li>
           </ul>            
         </div>
       </div>
@@ -630,6 +630,250 @@
           <pre><code>2018-04-15 22:04:29 .....           19           19  good.txt
           2018-04-15 22:04:42 .....           20           20  ../../../../../../root/.ssh/authorized_keys
           </code></pre>
+          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
+              <header class="card__header">
+                  <div class="card__header__main">
+                      <div class="severity-icon severity-icon--low"></div>
+                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
+                      <div class="card__actions">
+                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
+                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
+                      </div>
+                  </div>
+                  <ul class="card__meta">
+                      <li class="card__meta__item">SNYK-CODE</li>
+                      <li class="card__meta__item">CWE-352</li>
+                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
+                  </ul>
+              </header>
+              <div class="card__section">
+                  <div class="card__summary severity--low">
+                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
+                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/OperacionesPDFController.cs (line : 39)</strong></div>    
+                  </div>
+                  <div class="card__panel dataflow">
+                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">39:22</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">public IActionResult <br /></span><span class="marker">FusionarArchivosPDF(</span><span class="dataflow__codesuffix">IFormFile archivo1, IFormFile archivo2)</span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">0</span>
+                      </div>
+                  </div>
+                  <div class="card__panel fix-analysis">
+                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
+                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
+          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
+          <p>Example:</p>
+          <pre><code>public class StudentController
+          {
+                  [HttpPost()]
+                  [IgnoreAntiforgeryToken(Order = 1000)]
+                  public Task&lt;object&gt; SendForm()
+                  {
+                          ...
+                  }
+          }
+          </code></pre>
+          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
+          <ul>
+          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
+          </li>
+          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
+          </li>
+          </ul>
+          <h2 id="references">References</h2>
+          <ul>
+          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
+          </ul>
+          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
+              <header class="card__header">
+                  <div class="card__header__main">
+                      <div class="severity-icon severity-icon--low"></div>
+                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
+                      <div class="card__actions">
+                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
+                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
+                      </div>
+                  </div>
+                  <ul class="card__meta">
+                      <li class="card__meta__item">SNYK-CODE</li>
+                      <li class="card__meta__item">CWE-352</li>
+                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
+                  </ul>
+              </header>
+              <div class="card__section">
+                  <div class="card__summary severity--low">
+                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
+                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/OperacionesPDFController.cs (line : 96)</strong></div>    
+                  </div>
+                  <div class="card__panel dataflow">
+                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">96:22</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">public IActionResult <br /></span><span class="marker">CortarArchivoPDF(</span><span class="dataflow__codesuffix">string rutaArchivoTemp, int startPage, int endPage)</span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">0</span>
+                      </div>
+                  </div>
+                  <div class="card__panel fix-analysis">
+                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
+                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
+          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
+          <p>Example:</p>
+          <pre><code>public class StudentController
+          {
+                  [HttpPost()]
+                  [IgnoreAntiforgeryToken(Order = 1000)]
+                  public Task&lt;object&gt; SendForm()
+                  {
+                          ...
+                  }
+          }
+          </code></pre>
+          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
+          <ul>
+          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
+          </li>
+          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
+          </li>
+          </ul>
+          <h2 id="references">References</h2>
+          <ul>
+          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
+          </ul>
+          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
+              <header class="card__header">
+                  <div class="card__header__main">
+                      <div class="severity-icon severity-icon--low"></div>
+                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
+                      <div class="card__actions">
+                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
+                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
+                      </div>
+                  </div>
+                  <ul class="card__meta">
+                      <li class="card__meta__item">SNYK-CODE</li>
+                      <li class="card__meta__item">CWE-352</li>
+                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
+                  </ul>
+              </header>
+              <div class="card__section">
+                  <div class="card__summary severity--low">
+                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
+                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/OperacionesPDFController.cs (line : 150)</strong></div>    
+                  </div>
+                  <div class="card__panel dataflow">
+                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">150:22</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">public IActionResult <br /></span><span class="marker">ObtenerTotalPaginas(</span><span class="dataflow__codesuffix">IFormFile pdfFile)</span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">0</span>
+                      </div>
+                  </div>
+                  <div class="card__panel fix-analysis">
+                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
+                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
+          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
+          <p>Example:</p>
+          <pre><code>public class StudentController
+          {
+                  [HttpPost()]
+                  [IgnoreAntiforgeryToken(Order = 1000)]
+                  public Task&lt;object&gt; SendForm()
+                  {
+                          ...
+                  }
+          }
+          </code></pre>
+          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
+          <ul>
+          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
+          </li>
+          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
+          </li>
+          </ul>
+          <h2 id="references">References</h2>
+          <ul>
+          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
+          </ul>
+          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
+              <header class="card__header">
+                  <div class="card__header__main">
+                      <div class="severity-icon severity-icon--low"></div>
+                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
+                      <div class="card__actions">
+                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
+                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
+                      </div>
+                  </div>
+                  <ul class="card__meta">
+                      <li class="card__meta__item">SNYK-CODE</li>
+                      <li class="card__meta__item">CWE-352</li>
+                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
+                  </ul>
+              </header>
+              <div class="card__section">
+                  <div class="card__summary severity--low">
+                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
+                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/OperacionesPDFController.cs (line : 173)</strong></div>    
+                  </div>
+                  <div class="card__panel dataflow">
+                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">173:22</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">public IActionResult <br /></span><span class="marker">CargarArchivoTemporal(</span><span class="dataflow__codesuffix">IFormFile pdfFile)</span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">0</span>
+                      </div>
+                  </div>
+                  <div class="card__panel fix-analysis">
+                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
+                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
+          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
+          <p>Example:</p>
+          <pre><code>public class StudentController
+          {
+                  [HttpPost()]
+                  [IgnoreAntiforgeryToken(Order = 1000)]
+                  public Task&lt;object&gt; SendForm()
+                  {
+                          ...
+                  }
+          }
+          </code></pre>
+          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
+          <ul>
+          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
+          </li>
+          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
+          </li>
+          </ul>
+          <h2 id="references">References</h2>
+          <ul>
+          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
+          </ul>
           </div>
                   </div>
               </div>
@@ -905,250 +1149,6 @@
                       <div class="dataflow__item">
                           <span class="dataflow__lineno" title="line:column">65:30</span>
                           <div class="dataflow__code"><span class="dataflow__codeprefix">        public IActionResult <br /></span><span class="marker">Logout(</span><span class="dataflow__codesuffix">)</span></div>
-                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
-                          <span class="dataflow__step">0</span>
-                      </div>
-                  </div>
-                  <div class="card__panel fix-analysis">
-                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
-                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
-          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
-          <p>Example:</p>
-          <pre><code>public class StudentController
-          {
-                  [HttpPost()]
-                  [IgnoreAntiforgeryToken(Order = 1000)]
-                  public Task&lt;object&gt; SendForm()
-                  {
-                          ...
-                  }
-          }
-          </code></pre>
-          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
-          <ul>
-          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
-          </li>
-          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
-          </li>
-          </ul>
-          <h2 id="references">References</h2>
-          <ul>
-          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
-          </ul>
-          </div>
-                  </div>
-              </div>
-          </div>
-          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
-              <header class="card__header">
-                  <div class="card__header__main">
-                      <div class="severity-icon severity-icon--low"></div>
-                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
-                      <div class="card__actions">
-                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
-                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
-                      </div>
-                  </div>
-                  <ul class="card__meta">
-                      <li class="card__meta__item">SNYK-CODE</li>
-                      <li class="card__meta__item">CWE-352</li>
-                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
-                  </ul>
-              </header>
-              <div class="card__section">
-                  <div class="card__summary severity--low">
-                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
-                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/OperacionesPDFController.cs (line : 39)</strong></div>    
-                  </div>
-                  <div class="card__panel dataflow">
-                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
-                      <div class="dataflow__filename"> PROYECTOPDF/Controllers/OperacionesPDFController.cs</div>
-                      <div class="dataflow__item">
-                          <span class="dataflow__lineno" title="line:column">39:22</span>
-                          <div class="dataflow__code"><span class="dataflow__codeprefix">public IActionResult <br /></span><span class="marker">FusionarArchivosPDF(</span><span class="dataflow__codesuffix">IFormFile archivo1, IFormFile archivo2)</span></div>
-                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
-                          <span class="dataflow__step">0</span>
-                      </div>
-                  </div>
-                  <div class="card__panel fix-analysis">
-                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
-                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
-          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
-          <p>Example:</p>
-          <pre><code>public class StudentController
-          {
-                  [HttpPost()]
-                  [IgnoreAntiforgeryToken(Order = 1000)]
-                  public Task&lt;object&gt; SendForm()
-                  {
-                          ...
-                  }
-          }
-          </code></pre>
-          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
-          <ul>
-          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
-          </li>
-          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
-          </li>
-          </ul>
-          <h2 id="references">References</h2>
-          <ul>
-          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
-          </ul>
-          </div>
-                  </div>
-              </div>
-          </div>
-          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
-              <header class="card__header">
-                  <div class="card__header__main">
-                      <div class="severity-icon severity-icon--low"></div>
-                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
-                      <div class="card__actions">
-                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
-                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
-                      </div>
-                  </div>
-                  <ul class="card__meta">
-                      <li class="card__meta__item">SNYK-CODE</li>
-                      <li class="card__meta__item">CWE-352</li>
-                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
-                  </ul>
-              </header>
-              <div class="card__section">
-                  <div class="card__summary severity--low">
-                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
-                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/OperacionesPDFController.cs (line : 96)</strong></div>    
-                  </div>
-                  <div class="card__panel dataflow">
-                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
-                      
-                      <div class="dataflow__item">
-                          <span class="dataflow__lineno" title="line:column">96:22</span>
-                          <div class="dataflow__code"><span class="dataflow__codeprefix">public IActionResult <br /></span><span class="marker">CortarArchivoPDF(</span><span class="dataflow__codesuffix">string rutaArchivoTemp, int startPage, int endPage)</span></div>
-                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
-                          <span class="dataflow__step">0</span>
-                      </div>
-                  </div>
-                  <div class="card__panel fix-analysis">
-                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
-                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
-          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
-          <p>Example:</p>
-          <pre><code>public class StudentController
-          {
-                  [HttpPost()]
-                  [IgnoreAntiforgeryToken(Order = 1000)]
-                  public Task&lt;object&gt; SendForm()
-                  {
-                          ...
-                  }
-          }
-          </code></pre>
-          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
-          <ul>
-          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
-          </li>
-          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
-          </li>
-          </ul>
-          <h2 id="references">References</h2>
-          <ul>
-          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
-          </ul>
-          </div>
-                  </div>
-              </div>
-          </div>
-          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
-              <header class="card__header">
-                  <div class="card__header__main">
-                      <div class="severity-icon severity-icon--low"></div>
-                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
-                      <div class="card__actions">
-                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
-                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
-                      </div>
-                  </div>
-                  <ul class="card__meta">
-                      <li class="card__meta__item">SNYK-CODE</li>
-                      <li class="card__meta__item">CWE-352</li>
-                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
-                  </ul>
-              </header>
-              <div class="card__section">
-                  <div class="card__summary severity--low">
-                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
-                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/OperacionesPDFController.cs (line : 150)</strong></div>    
-                  </div>
-                  <div class="card__panel dataflow">
-                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
-                      
-                      <div class="dataflow__item">
-                          <span class="dataflow__lineno" title="line:column">150:22</span>
-                          <div class="dataflow__code"><span class="dataflow__codeprefix">public IActionResult <br /></span><span class="marker">ObtenerTotalPaginas(</span><span class="dataflow__codesuffix">IFormFile pdfFile)</span></div>
-                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
-                          <span class="dataflow__step">0</span>
-                      </div>
-                  </div>
-                  <div class="card__panel fix-analysis">
-                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
-                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
-          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
-          <p>Example:</p>
-          <pre><code>public class StudentController
-          {
-                  [HttpPost()]
-                  [IgnoreAntiforgeryToken(Order = 1000)]
-                  public Task&lt;object&gt; SendForm()
-                  {
-                          ...
-                  }
-          }
-          </code></pre>
-          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
-          <ul>
-          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
-          </li>
-          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
-          </li>
-          </ul>
-          <h2 id="references">References</h2>
-          <ul>
-          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
-          </ul>
-          </div>
-                  </div>
-              </div>
-          </div>
-          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
-              <header class="card__header">
-                  <div class="card__header__main">
-                      <div class="severity-icon severity-icon--low"></div>
-                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
-                      <div class="card__actions">
-                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
-                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
-                      </div>
-                  </div>
-                  <ul class="card__meta">
-                      <li class="card__meta__item">SNYK-CODE</li>
-                      <li class="card__meta__item">CWE-352</li>
-                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
-                  </ul>
-              </header>
-              <div class="card__section">
-                  <div class="card__summary severity--low">
-                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
-                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/OperacionesPDFController.cs (line : 173)</strong></div>    
-                  </div>
-                  <div class="card__panel dataflow">
-                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
-                      
-                      <div class="dataflow__item">
-                          <span class="dataflow__lineno" title="line:column">173:22</span>
-                          <div class="dataflow__code"><span class="dataflow__codeprefix">public IActionResult <br /></span><span class="marker">CargarArchivoTemporal(</span><span class="dataflow__codesuffix">IFormFile pdfFile)</span></div>
                           <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
                           <span class="dataflow__step">0</span>
                       </div>
