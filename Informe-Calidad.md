@@ -23,9 +23,7 @@
 - Fiorela Milady Ticahuanca Cutipa (2020068765)
 
 **Tacna – Perú**
-
 ***2024***
-
 </center>
 
 # **Sistema: MEJORAMIENTO DE LA APLICACIÓN PDF SOLUTIONS**
