@@ -1,49 +1,42 @@
 <center>
 
-[comment]: <img src="./media/media/image1.png" style="width:1.088in;height:1.46256in" alt="escudo.png" />
+![Escudo de la Universidad](./media/media/image1.png)
 
-![./media/media/image1.png](./media/logo-upt.png) 
+![Logo de la UPT](./media/logo-upt.png)
 
-</center>
+# **UNIVERSIDAD PRIVADA DE TACNA**
 
-**UNIVERSIDAD PRIVADA DE TACNA**
+## **FACULTAD DE INGENIERIA**
 
-**FACULTAD DE INGENIERIA**
+### **Escuela Profesional de Ingeniería de Sistemas**
 
-**Escuela Profesional de Ingeniería de Sistemas**
+## **Proyecto: MEJORAMIENTO DE LA APLICACIÓN PDF SOLUTIONS**
 
-**Proyecto *MEJORAMIENTO DE LA APLICACIÓN PDF SOLUTIONS***
+**Curso:** Calidad y Pruebas de Software
 
-Curso: *Calidad y Pruebas de Software*
+**Docente:** Ing. Patrick Jose Cuadros Quiroga
 
-Docente: *Ing. Cuadros Quiroga, Patrick Jose*
+### **Integrantes**
 
-**Integrantes**  
-- Flores Ramos, Mario Antonio				(2018000597)  
-- Salinas Condori, Erick Javier             (2020069046)  
-- Ticahuanca Cutipa, Fiorela Milady 	    (2020068765)
+- Mario Antonio Flores Ramos (2018000597)  
+- Erick Javier Salinas Condori (2020069046)  
+- Fiorela Milady Ticahuanca Cutipa (2020068765)
 
 **Tacna – Perú**
 
 ***2024***
 
 </center>
-<div style="page-break-after: always; visibility: hidden">\pagebreak</div>
 
-Sistema *MEJORAMIENTO DE LA APLICACIÓN PDF SOLUTIONS*
+# **Sistema: MEJORAMIENTO DE LA APLICACIÓN PDF SOLUTIONS**
 
-Informe de Factibilidad
+## **Informe de Factibilidad**
 
-Versión *{1.0}*
+### **Versión:** {1.0}
 
-|CONTROL DE VERSIONES||||||
-| :-: | :- | :- | :- | :- | :- |
-|Versión|Hecha por|Revisada por|Aprobada por|Fecha|Motivo|
-|1\.0|MPV|ELV|ARV|10/10/2020|Versión Original|
-
-<div style="page-break-after: always; visibility: hidden">\pagebreak</div>
-
-<div style="page-break-after: always; visibility: hidden">\pagebreak</div>
+| CONTROL DE VERSIONES | Hecha por | Revisada por | Aprobada por | Fecha        | Motivo               |
+| :------------------: | :-------: | :----------: | :----------: | :----------: | :------------------: |
+| 1.0                  | MPV      | ELV         | ARV          | 10/10/2020   | Versión Original     |
 
 # **<u>Tema: Mejoramiento de la Aplicación PDF SOLUTIONS</u>**
 
