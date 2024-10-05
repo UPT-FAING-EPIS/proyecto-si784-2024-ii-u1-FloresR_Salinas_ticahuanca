@@ -156,6 +156,36 @@ MEJORAMIENTO DE LA APLICACIÓN PDF SOLUTIONS
     Diagramas de Casos de Uso, Diagrama de Clases, Diagrama de Componentes y Arquitectura.
 
 
+Diagrama de caso de uso 
+![image](https://github.com/user-attachments/assets/5d43f136-c0fe-40f2-96fb-d50d65aaafc3)
+
+Diagrama de Clases
+![image](https://github.com/user-attachments/assets/b716c096-991f-42a9-9e3c-a017e09fca92)
+
+Diagrama de paquetes 
+![image](https://github.com/user-attachments/assets/a6e40e6b-df28-4391-ac73-2f9664635c6f)
+
+Diagrama de componentes
+![image](https://github.com/user-attachments/assets/d1ebb9ec-b4cd-4b74-b24e-f4b3029a8d64)
+
+Diagrama de Secuencia 
+
+-	Caso de Uso: Iniciar Sesión
+  ![image](https://github.com/user-attachments/assets/911eec05-6dfd-4f75-876b-5c693ebc6237)
+-	Caso de Uso: Comprar Suscripción Premium
+  ![image](https://github.com/user-attachments/assets/10dba624-f948-4bee-bb78-7f1fa05e11ba)
+-	Caso de Uso: Fusionar PDF
+  ![image](https://github.com/user-attachments/assets/ebd01d02-586d-45a5-bee5-313e0e56a65b)
+-	Caso de Uso: Cortar PDF
+  ![image](https://github.com/user-attachments/assets/e0b05229-897c-423c-a3bb-d06b4d599ccf)
+-	Caso de Uso: Ver Operaciones Realizadas
+  ![image](https://github.com/user-attachments/assets/ad37d5e5-eb57-42ed-8364-b5b290385808)
+
+
+Diagrama de Objetos
+![image](https://github.com/user-attachments/assets/ab1f4e2c-70f2-4683-9955-756660e89903)
+
+
 10. Desarrollo de la propuesta (Aqui va el analisis de su aplicación con SonarQube y Snyk, para que les muestre todos los aspectos a mejorar de su aplicación)
 
     7.1.   Tecnología de información 
