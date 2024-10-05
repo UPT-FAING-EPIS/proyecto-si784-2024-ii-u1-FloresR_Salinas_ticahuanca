@@ -185,12 +185,59 @@ Diagrama de Secuencia
 Diagrama de Objetos
 ![image](https://github.com/user-attachments/assets/ab1f4e2c-70f2-4683-9955-756660e89903)
 
-
 10. Desarrollo de la propuesta (Aqui va el analisis de su aplicación con SonarQube y Snyk, para que les muestre todos los aspectos a mejorar de su aplicación)
+
+# Análisis de la aplicación con SonarQube
+
+Aqui podemos ver que pudimos solucionar algunos errores del Nunit
+![image](https://github.com/user-attachments/assets/443aa8cf-2b79-4a6c-bbcf-096919623123)
+
+![image](https://github.com/user-attachments/assets/fc12c103-e404-4743-948e-2f9eaf8f8b6f)
+
+Actualmente el codigo se encuentra asi 
+![image](https://github.com/user-attachments/assets/1c2ca288-b04b-48de-a314-ea5c283d6b7f)
+
+![image](https://github.com/user-attachments/assets/46a0f6be-e868-4500-8f90-7f53d00cbc6e)
+
+![image](https://github.com/user-attachments/assets/ff9aa5bb-0791-42fe-bc95-0fb63d66ae3c)
+
+![image](https://github.com/user-attachments/assets/09ae69b8-ddff-42dd-a2e5-3dc4b2c124f7)
+
+![image](https://github.com/user-attachments/assets/e4723c01-4ce7-4c9c-af42-e2f350223d1a)
+
+![image](https://github.com/user-attachments/assets/c6bfc082-9dd0-4bdd-93f0-10b0e49c2737)
+
+![image](https://github.com/user-attachments/assets/33dd65f3-75f2-4f88-9fda-b605664f6812)
+
+![image](https://github.com/user-attachments/assets/f469f806-0f0e-4d52-b7d4-0f20f032b9c9)
+
+# Análisis de la aplicación con Snyk
+
+![image](https://github.com/user-attachments/assets/b298cae7-3084-4c5b-81ad-d88a131c4e3f)
+
+![image](https://github.com/user-attachments/assets/3de0bca0-3fe6-427a-a21c-7f1848604fa7)
+
+![image](https://github.com/user-attachments/assets/ed723086-3552-42d9-a6b8-103326ec683c)
+
+![image](https://github.com/user-attachments/assets/cafd96cd-af5e-46ba-8c40-b89bad692060)
+
+![image](https://github.com/user-attachments/assets/afb5352c-8109-44c7-998c-5d679ea917ca)
+
+![image](https://github.com/user-attachments/assets/40d0de0d-09b9-4dac-89da-960f5578b84d)
+
+![image](https://github.com/user-attachments/assets/78fa3bf3-e97a-4a3e-a7f1-191f77f46b27)
+
+![image](https://github.com/user-attachments/assets/f779b59c-bedf-4712-b0db-329e15196126)
+
+# Análisis de la aplicación con Semgrep
+
+![image](https://github.com/user-attachments/assets/a5d98e8a-b61f-4567-b1d7-71b7eae71a0d)
+
+![image](https://github.com/user-attachments/assets/8ff40fb3-dbfe-4031-a94d-786656b97d80)
+
+
 
     7.1.   Tecnología de información 
 
     7.2.   Metodología, técnicas usadas
 
-11. Cronograma
-   (personas, tiempo, otros recursos) Basado en las observaciones que la herramienta SonarQube les informara         sobre la aplicación, a fin de reducir la deuda tecnica, vulnerabilidades, fallas, etc. a 0.
