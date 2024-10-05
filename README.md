@@ -132,8 +132,11 @@ Diagramas de Casos de Uso, Diagrama de Clases, Diagrama de Componentes y Arquite
 ### Diagrama de Arquitectura Software
 ![Diagrama de Arquitectura Software](https://github.com/user-attachments/assets/c0f661c8-0f71-480b-bea0-c3e6d5e1d9cc)
 
-### Diagrama de Despliegue 
-![image](https://github.com/user-attachments/assets/d71c35a9-4a23-44e1-abf1-5b64c89d9017)
+### Diagrama de Despligue
+![image](https://github.com/user-attachments/assets/c04195dd-4d0e-44fa-b64e-9811a891f635)
+
+### Diagrama de Base de datos Relacional
+![image](https://github.com/user-attachments/assets/d912c4bf-f7e1-4c77-91c4-a42bb170cba5)
 
 ## 10. Desarrollo de la Propuesta
 
