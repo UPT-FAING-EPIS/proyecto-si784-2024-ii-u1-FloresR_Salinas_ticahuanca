@@ -185,6 +185,10 @@ Diagrama de Secuencia
 Diagrama de Objetos
 ![image](https://github.com/user-attachments/assets/ab1f4e2c-70f2-4683-9955-756660e89903)
 
+Diagrama de arquitectura software 
+
+![image](https://github.com/user-attachments/assets/c0f661c8-0f71-480b-bea0-c3e6d5e1d9cc)
+
 10. Desarrollo de la propuesta (Aqui va el analisis de su aplicación con SonarQube y Snyk, para que les muestre todos los aspectos a mejorar de su aplicación)
 
 # Análisis de la aplicación con SonarQube
