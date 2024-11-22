@@ -525,7 +525,7 @@
           </svg>
         </a>
         <div class="test-meta">
-          <p class="timestamp">October 5th 2024, 10:49:28 pm (UTC+00:00)</p>
+          <p class="timestamp">November 22nd 2024, 1:16:57 am (UTC+00:00)</p>
           <div class="filepath" title="/home/runner/work/proyecto-si784-2024-ii-u1-FloresR_Salinas_ticahuanca/proyecto-si784-2024-ii-u1-FloresR_Salinas_ticahuanca">Source: /home/runner/work/proyecto-si784-2024-ii-u1-FloresR_Salinas_ticahuanca/proyecto-si784-2024-ii-u1-FloresR_Salinas_ticahuanca</div>
         </div>
       </div>
@@ -544,7 +544,7 @@
               <span class="severity-icon severity-icon--medium"></span> <span><strong>0</strong> medium issues</span>
             </div>
             <div class="meta-count">
-              <span class="severity-icon severity-icon--low"></span> <span><strong>11</strong> low issues</span>
+              <span class="severity-icon severity-icon--low"></span> <span><strong>16</strong> low issues</span>
             </div>
           </div>
         </div>
@@ -595,17 +595,24 @@
                       </div>
                       
                       <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">109:30</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">    if (string.IsNullOrEmpty(<br /></span><span class="marker">rutaArchivoTemp)</span><span class="dataflow__codesuffix"> || !System.IO.File.Exists(rutaArchivoTemp))</span></div>
+                          
+                          <span class="dataflow__step">2</span>
+                      </div>
+                      
+                      <div class="dataflow__item">
                           <span class="dataflow__lineno" title="line:column">109:73</span>
                           <div class="dataflow__code"><span class="dataflow__codeprefix">    if (string.IsNullOrEmpty(rutaArchivoTemp) || !System.IO.File.Exists(<br /></span><span class="marker">rutaArchivoTemp)</span><span class="dataflow__codesuffix">)</span></div>
                           
-                          <span class="dataflow__step">2</span>
+                          <span class="dataflow__step">3</span>
                       </div>
                       
                       <div class="dataflow__item">
                           <span class="dataflow__lineno" title="line:column">109:51</span>
                           <div class="dataflow__code"><span class="dataflow__codeprefix">    if (string.IsNullOrEmpty(rutaArchivoTemp) || !<br /></span><span class="marker">System.IO.File.Exists(</span><span class="dataflow__codesuffix">rutaArchivoTemp))</span></div>
                           <span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
-                          <span class="dataflow__step">3</span>
+                          <span class="dataflow__step">4</span>
                       </div>
                   </div>
                   <div class="card__panel fix-analysis">
@@ -657,7 +664,7 @@
                   </div>
                   <div class="card__panel dataflow">
                       <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
-                      <div class="dataflow__filename"> PROYECTOPDF/Controllers/OperacionesPDFController.cs</div>
+                      
                       <div class="dataflow__item">
                           <span class="dataflow__lineno" title="line:column">39:22</span>
                           <div class="dataflow__code"><span class="dataflow__codeprefix">public IActionResult <br /></span><span class="marker">FusionarArchivosPDF(</span><span class="dataflow__codesuffix">IFormFile archivo1, IFormFile archivo2)</span></div>
@@ -897,6 +904,128 @@
               <div class="card__section">
                   <div class="card__summary severity--low">
                       <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
+                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/AuthController.cs (line : 28)</strong></div>    
+                  </div>
+                  <div class="card__panel dataflow">
+                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
+                      <div class="dataflow__filename"> PROYECTOPDF/Controllers/AuthController.cs</div>
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">28:30</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">        public IActionResult <br /></span><span class="marker">Login(</span><span class="dataflow__codesuffix">string correo, string password)</span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">0</span>
+                      </div>
+                  </div>
+                  <div class="card__panel fix-analysis">
+                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
+                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
+          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
+          <p>Example:</p>
+          <pre><code>public class StudentController
+          {
+                  [HttpPost()]
+                  [IgnoreAntiforgeryToken(Order = 1000)]
+                  public Task&lt;object&gt; SendForm()
+                  {
+                          ...
+                  }
+          }
+          </code></pre>
+          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
+          <ul>
+          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
+          </li>
+          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
+          </li>
+          </ul>
+          <h2 id="references">References</h2>
+          <ul>
+          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
+          </ul>
+          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
+              <header class="card__header">
+                  <div class="card__header__main">
+                      <div class="severity-icon severity-icon--low"></div>
+                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
+                      <div class="card__actions">
+                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
+                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
+                      </div>
+                  </div>
+                  <ul class="card__meta">
+                      <li class="card__meta__item">SNYK-CODE</li>
+                      <li class="card__meta__item">CWE-352</li>
+                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
+                  </ul>
+              </header>
+              <div class="card__section">
+                  <div class="card__summary severity--low">
+                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
+                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/AuthController.cs (line : 65)</strong></div>    
+                  </div>
+                  <div class="card__panel dataflow">
+                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">65:30</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">        public IActionResult <br /></span><span class="marker">Logout(</span><span class="dataflow__codesuffix">)</span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">0</span>
+                      </div>
+                  </div>
+                  <div class="card__panel fix-analysis">
+                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
+                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
+          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
+          <p>Example:</p>
+          <pre><code>public class StudentController
+          {
+                  [HttpPost()]
+                  [IgnoreAntiforgeryToken(Order = 1000)]
+                  public Task&lt;object&gt; SendForm()
+                  {
+                          ...
+                  }
+          }
+          </code></pre>
+          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
+          <ul>
+          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
+          </li>
+          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
+          </li>
+          </ul>
+          <h2 id="references">References</h2>
+          <ul>
+          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
+          </ul>
+          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
+              <header class="card__header">
+                  <div class="card__header__main">
+                      <div class="severity-icon severity-icon--low"></div>
+                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
+                      <div class="card__actions">
+                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
+                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
+                      </div>
+                  </div>
+                  <ul class="card__meta">
+                      <li class="card__meta__item">SNYK-CODE</li>
+                      <li class="card__meta__item">CWE-352</li>
+                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
+                  </ul>
+              </header>
+              <div class="card__section">
+                  <div class="card__summary severity--low">
+                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
                       <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/SuscripcionController.cs (line : 19)</strong></div>    
                   </div>
                   <div class="card__panel dataflow">
@@ -1065,7 +1194,7 @@
               <header class="card__header">
                   <div class="card__header__main">
                       <div class="severity-icon severity-icon--low"></div>
-                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
+                      <h2 class="card__title">Use of Hardcoded Credentials</h2>
                       <div class="card__actions">
                           <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
                           <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
@@ -1073,21 +1202,21 @@
                   </div>
                   <ul class="card__meta">
                       <li class="card__meta__item">SNYK-CODE</li>
-                      <li class="card__meta__item">CWE-352</li>
-                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
+                      <li class="card__meta__item">CWE-798</li>
+                      <li class="card__meta__item">NoHardcodedCredentials/test</li>
                   </ul>
               </header>
               <div class="card__section">
                   <div class="card__summary severity--low">
-                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
-                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/AuthController.cs (line : 28)</strong></div>    
+                      <p>Do not hardcode credentials in code. Found hardcoded credential used in a database connection string.</p>
+                      <div class="file-location">Found in: <strong>NegocioPDF.Tests/UsuarioRepositoryTests.cs (line : 20)</strong></div>    
                   </div>
                   <div class="card__panel dataflow">
                       <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
-                      <div class="dataflow__filename"> PROYECTOPDF/Controllers/AuthController.cs</div>
+                      <div class="dataflow__filename"> NegocioPDF.Tests/UsuarioRepositoryTests.cs</div>
                       <div class="dataflow__item">
-                          <span class="dataflow__lineno" title="line:column">28:30</span>
-                          <div class="dataflow__code"><span class="dataflow__codeprefix">        public IActionResult <br /></span><span class="marker">Login(</span><span class="dataflow__codesuffix">string correo, string password)</span></div>
+                          <span class="dataflow__lineno" title="line:column">20:53</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">        private readonly string _connectionString &#x3D; <br /></span><span class="marker">&quot;Server&#x3D;localhost;Database&#x3D;pdfsolutions_test;Uid&#x3D;root;Pwd&#x3D;;&quot;;</span><span class="dataflow__codesuffix"></span></div>
                           <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
                           <span class="dataflow__step">0</span>
                       </div>
@@ -1095,28 +1224,15 @@
                   <div class="card__panel fix-analysis">
                       <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
                       <div class="card__panel__markdown"><h2 id="details">Details</h2>
-          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
-          <p>Example:</p>
-          <pre><code>public class StudentController
-          {
-                  [HttpPost()]
-                  [IgnoreAntiforgeryToken(Order = 1000)]
-                  public Task&lt;object&gt; SendForm()
-                  {
-                          ...
-                  }
-          }
-          </code></pre>
+          <p>Developers may use hardcoded credentials for convenience when coding in order to simplify their workflow. While they are responsible for removing these before production, occasionally this task may fall through the cracks. This also becomes a maintenance challenge when credentials are re-used across multiple applications.</p>
+          <p>Once attackers gain access, they may take advantage of privilege level to remove or alter data, take down a site or app, or hold any of the above for ransom. The risk across multiple similar projects is even greater. If code containing the credentials is reused across multiple projects, they will all be compromised.</p>
           <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
           <ul>
-          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
-          </li>
-          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
-          </li>
-          </ul>
-          <h2 id="references">References</h2>
-          <ul>
-          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
+          <li>Plan software architecture such that keys and passwords are always stored outside the code, wherever possible.</li>
+          <li>Plan encryption into software architecture for all credential information and ensure proper handling of keys, credentials, and passwords.</li>
+          <li>Prompt for a secure password on first login rather than hard-code a default password.</li>
+          <li>If a hardcoded password or credential must be used, limit its use, for example, to system console users rather than via the network.</li>
+          <li>Use strong hashes for inbound password authentication, ideally with randomly assigned salts to increase the difficulty level in case of brute-force attack.</li>
           </ul>
           </div>
                   </div>
@@ -1126,7 +1242,7 @@
               <header class="card__header">
                   <div class="card__header__main">
                       <div class="severity-icon severity-icon--low"></div>
-                      <h2 class="card__title">Anti-forgery token validation disabled</h2>
+                      <h2 class="card__title">Use of Hardcoded Credentials</h2>
                       <div class="card__actions">
                           <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
                           <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
@@ -1134,50 +1250,264 @@
                   </div>
                   <ul class="card__meta">
                       <li class="card__meta__item">SNYK-CODE</li>
-                      <li class="card__meta__item">CWE-352</li>
-                      <li class="card__meta__item">AntiforgeryTokenDisabled</li>
+                      <li class="card__meta__item">CWE-798</li>
+                      <li class="card__meta__item">NoHardcodedCredentials/test</li>
                   </ul>
               </header>
               <div class="card__section">
                   <div class="card__summary severity--low">
-                      <p>This ASP.NET MVC action should use an anti-forgery validation attribute. Not using this attribute disables Cross Site Request Forgery (CSRF) protection and allows CSRF attacks.</p>
-                      <div class="file-location">Found in: <strong>PROYECTOPDF/Controllers/AuthController.cs (line : 65)</strong></div>    
+                      <p>Do not hardcode credentials in code. Found hardcoded credential used in password variable declaration.</p>
+                      <div class="file-location">Found in: <strong>NegocioPDF.Tests/UsuarioRepositoryTests.cs (line : 46)</strong></div>    
                   </div>
                   <div class="card__panel dataflow">
                       <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
                       
                       <div class="dataflow__item">
-                          <span class="dataflow__lineno" title="line:column">65:30</span>
-                          <div class="dataflow__code"><span class="dataflow__codeprefix">        public IActionResult <br /></span><span class="marker">Logout(</span><span class="dataflow__codesuffix">)</span></div>
-                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__lineno" title="line:column">46:28</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">                Password &#x3D; <br /></span><span class="marker">&quot;password123&quot;</span><span class="dataflow__codesuffix"></span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span>
                           <span class="dataflow__step">0</span>
+                      </div>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">46:17</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">                <br /></span><span class="marker">Password </span><span class="dataflow__codesuffix">&#x3D; &quot;password123&quot;</span></div>
+                          <span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">1</span>
                       </div>
                   </div>
                   <div class="card__panel fix-analysis">
                       <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
                       <div class="card__panel__markdown"><h2 id="details">Details</h2>
-          <p>Cross-site request forgery is an attack in which a malicious third party takes advantage of a user&#39;s authenticated credentials (such as a browser cookie) to impersonate that trusted user and perform unauthorized actions. The web application server cannot tell the difference between legitimate and malicious requests. This type of attack generally begins by tricking the user with a social engineering attack, such as a link or popup that the user inadvertently clicks, causing an unauthorized request to be sent to the web server. Consequences vary: At a standard user level, attackers can change passwords, transfer funds, make purchases, or connect with contacts; from an administrator account, attackers can then make changes to or even take down the app itself.</p>
-          <p>Example:</p>
-          <pre><code>public class StudentController
-          {
-                  [HttpPost()]
-                  [IgnoreAntiforgeryToken(Order = 1000)]
-                  public Task&lt;object&gt; SendForm()
-                  {
-                          ...
-                  }
-          }
-          </code></pre>
+          <p>Developers may use hardcoded credentials for convenience when coding in order to simplify their workflow. While they are responsible for removing these before production, occasionally this task may fall through the cracks. This also becomes a maintenance challenge when credentials are re-used across multiple applications.</p>
+          <p>Once attackers gain access, they may take advantage of privilege level to remove or alter data, take down a site or app, or hold any of the above for ransom. The risk across multiple similar projects is even greater. If code containing the credentials is reused across multiple projects, they will all be compromised.</p>
           <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
           <ul>
-          <li><p>In ASP.NET MVC controllers, enable anti-forgery token validation by adding the <code>[ValidateAntiForgeryToken]</code> attribute to all actions that change the state of the server.</p>
-          </li>
-          <li><p>Anti-forgery token validation is enabled by default in Razor Pages. This validation can be disabled either globally or on individual pages by using the  <code>[IgnoreAntiforgeryToken]</code>. Disabling this feature is not recommended and can allow for CSRF attacks on methods that might be performing sensitive user actions.</p>
-          </li>
+          <li>Plan software architecture such that keys and passwords are always stored outside the code, wherever possible.</li>
+          <li>Plan encryption into software architecture for all credential information and ensure proper handling of keys, credentials, and passwords.</li>
+          <li>Prompt for a secure password on first login rather than hard-code a default password.</li>
+          <li>If a hardcoded password or credential must be used, limit its use, for example, to system console users rather than via the network.</li>
+          <li>Use strong hashes for inbound password authentication, ideally with randomly assigned salts to increase the difficulty level in case of brute-force attack.</li>
           </ul>
-          <h2 id="references">References</h2>
+          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
+              <header class="card__header">
+                  <div class="card__header__main">
+                      <div class="severity-icon severity-icon--low"></div>
+                      <h2 class="card__title">Use of Hardcoded Credentials</h2>
+                      <div class="card__actions">
+                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
+                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
+                      </div>
+                  </div>
+                  <ul class="card__meta">
+                      <li class="card__meta__item">SNYK-CODE</li>
+                      <li class="card__meta__item">CWE-798</li>
+                      <li class="card__meta__item">NoHardcodedCredentials/test</li>
+                  </ul>
+              </header>
+              <div class="card__section">
+                  <div class="card__summary severity--low">
+                      <p>Do not hardcode credentials in code. Found hardcoded credential used in password variable declaration.</p>
+                      <div class="file-location">Found in: <strong>NegocioPDF.Tests/UsuarioRepositoryTests.cs (line : 69)</strong></div>    
+                  </div>
+                  <div class="card__panel dataflow">
+                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">69:28</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">                Password &#x3D; <br /></span><span class="marker">&quot;password123&quot;</span><span class="dataflow__codesuffix"></span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span>
+                          <span class="dataflow__step">0</span>
+                      </div>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">69:17</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">                <br /></span><span class="marker">Password </span><span class="dataflow__codesuffix">&#x3D; &quot;password123&quot;</span></div>
+                          <span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">1</span>
+                      </div>
+                  </div>
+                  <div class="card__panel fix-analysis">
+                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
+                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
+          <p>Developers may use hardcoded credentials for convenience when coding in order to simplify their workflow. While they are responsible for removing these before production, occasionally this task may fall through the cracks. This also becomes a maintenance challenge when credentials are re-used across multiple applications.</p>
+          <p>Once attackers gain access, they may take advantage of privilege level to remove or alter data, take down a site or app, or hold any of the above for ransom. The risk across multiple similar projects is even greater. If code containing the credentials is reused across multiple projects, they will all be compromised.</p>
+          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
           <ul>
-          <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
+          <li>Plan software architecture such that keys and passwords are always stored outside the code, wherever possible.</li>
+          <li>Plan encryption into software architecture for all credential information and ensure proper handling of keys, credentials, and passwords.</li>
+          <li>Prompt for a secure password on first login rather than hard-code a default password.</li>
+          <li>If a hardcoded password or credential must be used, limit its use, for example, to system console users rather than via the network.</li>
+          <li>Use strong hashes for inbound password authentication, ideally with randomly assigned salts to increase the difficulty level in case of brute-force attack.</li>
+          </ul>
+          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
+              <header class="card__header">
+                  <div class="card__header__main">
+                      <div class="severity-icon severity-icon--low"></div>
+                      <h2 class="card__title">Use of Hardcoded Credentials</h2>
+                      <div class="card__actions">
+                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
+                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
+                      </div>
+                  </div>
+                  <ul class="card__meta">
+                      <li class="card__meta__item">SNYK-CODE</li>
+                      <li class="card__meta__item">CWE-798</li>
+                      <li class="card__meta__item">NoHardcodedCredentials/test</li>
+                  </ul>
+              </header>
+              <div class="card__section">
+                  <div class="card__summary severity--low">
+                      <p>Do not hardcode credentials in code. Found hardcoded credential used in password variable declaration.</p>
+                      <div class="file-location">Found in: <strong>NegocioPDF.Tests/UsuarioRepositoryTests.cs (line : 76)</strong></div>    
+                  </div>
+                  <div class="card__panel dataflow">
+                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">76:28</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">                Password &#x3D; <br /></span><span class="marker">&quot;password456&quot;</span><span class="dataflow__codesuffix"></span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span>
+                          <span class="dataflow__step">0</span>
+                      </div>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">76:17</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">                <br /></span><span class="marker">Password </span><span class="dataflow__codesuffix">&#x3D; &quot;password456&quot;</span></div>
+                          <span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">1</span>
+                      </div>
+                  </div>
+                  <div class="card__panel fix-analysis">
+                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
+                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
+          <p>Developers may use hardcoded credentials for convenience when coding in order to simplify their workflow. While they are responsible for removing these before production, occasionally this task may fall through the cracks. This also becomes a maintenance challenge when credentials are re-used across multiple applications.</p>
+          <p>Once attackers gain access, they may take advantage of privilege level to remove or alter data, take down a site or app, or hold any of the above for ransom. The risk across multiple similar projects is even greater. If code containing the credentials is reused across multiple projects, they will all be compromised.</p>
+          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
+          <ul>
+          <li>Plan software architecture such that keys and passwords are always stored outside the code, wherever possible.</li>
+          <li>Plan encryption into software architecture for all credential information and ensure proper handling of keys, credentials, and passwords.</li>
+          <li>Prompt for a secure password on first login rather than hard-code a default password.</li>
+          <li>If a hardcoded password or credential must be used, limit its use, for example, to system console users rather than via the network.</li>
+          <li>Use strong hashes for inbound password authentication, ideally with randomly assigned salts to increase the difficulty level in case of brute-force attack.</li>
+          </ul>
+          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
+              <header class="card__header">
+                  <div class="card__header__main">
+                      <div class="severity-icon severity-icon--low"></div>
+                      <h2 class="card__title">Use of Hardcoded Credentials</h2>
+                      <div class="card__actions">
+                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
+                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
+                      </div>
+                  </div>
+                  <ul class="card__meta">
+                      <li class="card__meta__item">SNYK-CODE</li>
+                      <li class="card__meta__item">CWE-798</li>
+                      <li class="card__meta__item">NoHardcodedCredentials/test</li>
+                  </ul>
+              </header>
+              <div class="card__section">
+                  <div class="card__summary severity--low">
+                      <p>Do not hardcode credentials in code. Found hardcoded credential used in password variable declaration.</p>
+                      <div class="file-location">Found in: <strong>NegocioPDF.Tests/UsuarioRepositoryTests.cs (line : 96)</strong></div>    
+                  </div>
+                  <div class="card__panel dataflow">
+                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">96:28</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">                Password &#x3D; <br /></span><span class="marker">&quot;password123&quot;</span><span class="dataflow__codesuffix"></span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span>
+                          <span class="dataflow__step">0</span>
+                      </div>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">96:17</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">                <br /></span><span class="marker">Password </span><span class="dataflow__codesuffix">&#x3D; &quot;password123&quot;</span></div>
+                          <span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">1</span>
+                      </div>
+                  </div>
+                  <div class="card__panel fix-analysis">
+                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
+                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
+          <p>Developers may use hardcoded credentials for convenience when coding in order to simplify their workflow. While they are responsible for removing these before production, occasionally this task may fall through the cracks. This also becomes a maintenance challenge when credentials are re-used across multiple applications.</p>
+          <p>Once attackers gain access, they may take advantage of privilege level to remove or alter data, take down a site or app, or hold any of the above for ransom. The risk across multiple similar projects is even greater. If code containing the credentials is reused across multiple projects, they will all be compromised.</p>
+          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
+          <ul>
+          <li>Plan software architecture such that keys and passwords are always stored outside the code, wherever possible.</li>
+          <li>Plan encryption into software architecture for all credential information and ensure proper handling of keys, credentials, and passwords.</li>
+          <li>Prompt for a secure password on first login rather than hard-code a default password.</li>
+          <li>If a hardcoded password or credential must be used, limit its use, for example, to system console users rather than via the network.</li>
+          <li>Use strong hashes for inbound password authentication, ideally with randomly assigned salts to increase the difficulty level in case of brute-force attack.</li>
+          </ul>
+          </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
+              <header class="card__header">
+                  <div class="card__header__main">
+                      <div class="severity-icon severity-icon--low"></div>
+                      <h2 class="card__title">Use of Hardcoded Credentials</h2>
+                      <div class="card__actions">
+                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
+                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
+                      </div>
+                  </div>
+                  <ul class="card__meta">
+                      <li class="card__meta__item">SNYK-CODE</li>
+                      <li class="card__meta__item">CWE-798</li>
+                      <li class="card__meta__item">NoHardcodedCredentials/test</li>
+                  </ul>
+              </header>
+              <div class="card__section">
+                  <div class="card__summary severity--low">
+                      <p>Do not hardcode credentials in code. Found hardcoded credential used in password variable declaration.</p>
+                      <div class="file-location">Found in: <strong>NegocioPDF.Tests/UsuarioRepositoryTests.cs (line : 117)</strong></div>    
+                  </div>
+                  <div class="card__panel dataflow">
+                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">117:28</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">                Password &#x3D; <br /></span><span class="marker">&quot;password123&quot;</span><span class="dataflow__codesuffix"></span></div>
+                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span>
+                          <span class="dataflow__step">0</span>
+                      </div>
+                      
+                      <div class="dataflow__item">
+                          <span class="dataflow__lineno" title="line:column">117:17</span>
+                          <div class="dataflow__code"><span class="dataflow__codeprefix">                <br /></span><span class="marker">Password </span><span class="dataflow__codesuffix">&#x3D; &quot;password123&quot;</span></div>
+                          <span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
+                          <span class="dataflow__step">1</span>
+                      </div>
+                  </div>
+                  <div class="card__panel fix-analysis">
+                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
+                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
+          <p>Developers may use hardcoded credentials for convenience when coding in order to simplify their workflow. While they are responsible for removing these before production, occasionally this task may fall through the cracks. This also becomes a maintenance challenge when credentials are re-used across multiple applications.</p>
+          <p>Once attackers gain access, they may take advantage of privilege level to remove or alter data, take down a site or app, or hold any of the above for ransom. The risk across multiple similar projects is even greater. If code containing the credentials is reused across multiple projects, they will all be compromised.</p>
+          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
+          <ul>
+          <li>Plan software architecture such that keys and passwords are always stored outside the code, wherever possible.</li>
+          <li>Plan encryption into software architecture for all credential information and ensure proper handling of keys, credentials, and passwords.</li>
+          <li>Prompt for a secure password on first login rather than hard-code a default password.</li>
+          <li>If a hardcoded password or credential must be used, limit its use, for example, to system console users rather than via the network.</li>
+          <li>Use strong hashes for inbound password authentication, ideally with randomly assigned salts to increase the difficulty level in case of brute-force attack.</li>
           </ul>
           </div>
                   </div>
@@ -1239,54 +1569,6 @@
           <h2 id="references">References</h2>
           <ul>
           <li><a href="https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-5.0">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</a></li>
-          </ul>
-          </div>
-                  </div>
-              </div>
-          </div>
-          <div class="card card--vuln  disclosure--not-new severity--low" data-snyk-test="low">
-              <header class="card__header">
-                  <div class="card__header__main">
-                      <div class="severity-icon severity-icon--low"></div>
-                      <h2 class="card__title">Use of Hardcoded Credentials</h2>
-                      <div class="card__actions">
-                          <span class="card__action card-dataflow is-selected" onclick="toggleCardView(event)">Data Flow</span>
-                          <span class="card__action card-fix" onclick="toggleCardView(event)">Fix Analysis</span>
-                      </div>
-                  </div>
-                  <ul class="card__meta">
-                      <li class="card__meta__item">SNYK-CODE</li>
-                      <li class="card__meta__item">CWE-798</li>
-                      <li class="card__meta__item">NoHardcodedCredentials/test</li>
-                  </ul>
-              </header>
-              <div class="card__section">
-                  <div class="card__summary severity--low">
-                      <p>Do not hardcode credentials in code. Found hardcoded credential used in a database connection string.</p>
-                      <div class="file-location">Found in: <strong>NegocioPDF.Tests/UsuarioRepositoryTests.cs (line : 20)</strong></div>    
-                  </div>
-                  <div class="card__panel dataflow">
-                      <h2 class="card__panel__heading"><span class="heading-char">⇣</span> Data Flow</h2>
-                      <div class="dataflow__filename"> NegocioPDF.Tests/UsuarioRepositoryTests.cs</div>
-                      <div class="dataflow__item">
-                          <span class="dataflow__lineno" title="line:column">20:53</span>
-                          <div class="dataflow__code"><span class="dataflow__codeprefix">        private readonly string _connectionString &#x3D; <br /></span><span class="marker">&quot;Server&#x3D;localhost;Database&#x3D;pdfsolutions_test;Uid&#x3D;root;Pwd&#x3D;;&quot;;</span><span class="dataflow__codesuffix"></span></div>
-                          <span class="dataflow__badge" title="Data is 'tainted' if it comes from an insecure source such as a file, the network, or the user. This tainted data is passed to a sensitive sink, as described below.">Source</span><span class="dataflow__badge" title="Sinks are the operations that must receive clean data and that you wouldn't want an attacker to be able to manipulate.">Sink</span>
-                          <span class="dataflow__step">0</span>
-                      </div>
-                  </div>
-                  <div class="card__panel fix-analysis">
-                      <h2 class="card__panel__heading"><span class="heading-char">✓</span> Fix Analysis</h2>
-                      <div class="card__panel__markdown"><h2 id="details">Details</h2>
-          <p>Developers may use hardcoded credentials for convenience when coding in order to simplify their workflow. While they are responsible for removing these before production, occasionally this task may fall through the cracks. This also becomes a maintenance challenge when credentials are re-used across multiple applications.</p>
-          <p>Once attackers gain access, they may take advantage of privilege level to remove or alter data, take down a site or app, or hold any of the above for ransom. The risk across multiple similar projects is even greater. If code containing the credentials is reused across multiple projects, they will all be compromised.</p>
-          <h2 id="best-practices-for-prevention">Best practices for prevention</h2>
-          <ul>
-          <li>Plan software architecture such that keys and passwords are always stored outside the code, wherever possible.</li>
-          <li>Plan encryption into software architecture for all credential information and ensure proper handling of keys, credentials, and passwords.</li>
-          <li>Prompt for a secure password on first login rather than hard-code a default password.</li>
-          <li>If a hardcoded password or credential must be used, limit its use, for example, to system console users rather than via the network.</li>
-          <li>Use strong hashes for inbound password authentication, ideally with randomly assigned salts to increase the difficulty level in case of brute-force attack.</li>
           </ul>
           </div>
                   </div>
