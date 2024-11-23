@@ -23,19 +23,25 @@ namespace NegocioPDF.Repositories
     {
         connection.Open();
 
-        // Obtener el detalle de la suscripción actual
+        // Verificar si el usuario puede realizar la operación
         var suscripcion = connection.QueryFirstOrDefault<DetalleSuscripcion>(
             "SELECT * FROM detalles_suscripciones WHERE usuario_id = @UsuarioId",
             new { UsuarioId = usuarioId }
         );
 
-        // Verificar si la suscripción es 'basico' y si ha alcanzado el límite de operaciones
         if (suscripcion.tipo_suscripcion == "basico" && suscripcion.operaciones_realizadas >= 5)
         {
-            return false; // Indica que ya no se pueden realizar más operaciones
+            return false; // El usuario no puede realizar más operaciones
         }
 
-        // Incrementar el contador de operaciones
+        // Insertar la operación en la tabla `operaciones_pdf`
+        connection.Execute(
+            @"INSERT INTO operaciones_pdf (usuario_id, TipoOperacion, fechaOperacion) 
+              VALUES (@UsuarioId, @TipoOperacion, NOW())",
+            new { UsuarioId = usuarioId, TipoOperacion = tipoOperacion }
+        );
+
+        // Actualizar contador de operaciones si es suscripción básica
         if (suscripcion.tipo_suscripcion == "basico")
         {
             suscripcion.operaciones_realizadas++;
@@ -45,9 +51,8 @@ namespace NegocioPDF.Repositories
             );
         }
 
-        return true; // Indica que la operación se realizó correctamente
+        return true; // Operación registrada exitosamente
     }
-
 }
 
         // Método para obtener todas las operaciones de PDF realizadas por un usuario
